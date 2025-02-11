@@ -1,0 +1,5 @@
+cargo:rerun-if-changed=proto/model_service.proto
+cargo:warning=Building proto files...
+cargo:rerun-if-changed=proto/model_service.proto
+cargo:rerun-if-changed=proto
+cargo:warning=Proto build completed

@@ -1,0 +1,2 @@
+cargo:rerun-if-changed=../llmd-server/proto/model_service.proto
+cargo:rerun-if-changed=../llmd-server/proto

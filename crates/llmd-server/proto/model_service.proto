@@ -1,0 +1,54 @@
+syntax = "proto3";
+package modelservice;
+
+service ModelService {
+  rpc PullModel (PullModelRequest) returns (PullModelResponse);
+  rpc PushModel (PushModelRequest) returns (PushModelResponse);
+  rpc ListModels (ListModelsRequest) returns (ListModelsResponse);
+  rpc CopyModel (CopyModelRequest) returns (CopyModelResponse);
+  rpc RemoveModel (RemoveModelRequest) returns (RemoveModelResponse);
+}
+
+message PullModelRequest {
+  string model_name = 1;
+}
+
+message PullModelResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message PushModelRequest {
+  string model_name = 1;
+  bytes model_data = 2;
+}
+
+message PushModelResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message ListModelsRequest {}
+
+message ListModelsResponse {
+  repeated string model_names = 1;
+}
+
+message CopyModelRequest {
+  string source_model = 1;
+  string target_model = 2;
+}
+
+message CopyModelResponse {
+  bool success = 1;
+  string message = 2;
+}
+
+message RemoveModelRequest {
+  string model_name = 1;
+}
+
+message RemoveModelResponse {
+  bool success = 1;
+  string message = 2;
+} 
