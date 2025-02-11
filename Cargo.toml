@@ -1,0 +1,13 @@
+[package]
+name = "llmd"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+members = [
+    "crates/llmd-server",
+    "crates/llmd-cli",
+]
+
+[dependencies]
+clap = { version = "4.4", features = ["derive"] } 

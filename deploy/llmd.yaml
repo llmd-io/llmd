@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: llmd-system
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: llmd
+  namespace: llmd-system
+  labels:
+    app: llmd
+spec:
+  selector:
+    matchLabels:
+      app: llmd
+  template:
+    metadata:
+      labels:
+        app: llmd
+    spec:
+      containers:
+      - name: llmd
+        image: llmd/llmd:latest
+        resources:
+          limits:
+            memory: "2Gi"
+            cpu: "1"
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+        volumeMounts:
+        - name: models
+          mountPath: /models
+      volumes:
+      - name: models
+        hostPath:
+          path: /var/lib/llmd/models
+          type: DirectoryOrCreate 

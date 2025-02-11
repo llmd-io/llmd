@@ -1,0 +1,13 @@
+server:
+  host: "[::1]"
+  port: 50051
+
+model:
+  name: "Qwen/Qwen2-0.5B"
+
+engine:
+  name: "vllm"
+  config:
+    num_gpus: 1
+    gpu_memory_utilization: 0.8
+    max_model_len: 131072
